@@ -21,7 +21,7 @@ public abstract class AbstractSubscriber implements IEntity {
 	 * @param stateName the entry from the {@link StateName} enumeration that we want the new IState of the ISubscriber to be 
 	 */
 	public void setState(StateName stateName) {};
-
+`
 	
 	/**
 	 * is the function called each time an event is published to one of the channels that the 

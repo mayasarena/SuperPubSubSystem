@@ -17,5 +17,4 @@ public interface IState {
 	 * @param channelName
 	 */
 	public void handleEvent(AbstractEvent event, String channelName);
-	
 }
