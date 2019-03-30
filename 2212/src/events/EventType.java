@@ -11,5 +11,5 @@ package events;
  *  
  */
 public enum EventType {
-	TypeB, TypeA
+	News, Fictional, Scholarly
 }

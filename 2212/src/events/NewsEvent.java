@@ -6,7 +6,7 @@ package events;
  * sample event type, simply creates a new event using the constructor 
  * {@link AbstractEvent#AbstractEvent(long, int, EventMessage)}   
  */
-class EventTypeB extends AbstractEvent {
+class NewsEvent extends AbstractEvent {
 
 	
 	/**
@@ -18,9 +18,8 @@ class EventTypeB extends AbstractEvent {
 	 * @param eventPublisherId
 	 * @param payload
 	 */
-	protected EventTypeB(long eventID, int eventPublisherId, EventMessage payload) {
+	protected NewsEvent(long eventID, int eventPublisherId, EventMessage payload) {
 		super(eventID, eventPublisherId, payload);
 	}
-
 
 }
