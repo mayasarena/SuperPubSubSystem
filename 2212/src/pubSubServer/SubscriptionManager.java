@@ -10,13 +10,22 @@ import subscribers.AbstractSubscriber;
  *  exposes the subscribe, and unsubscribe methods to the clients 
  */
 public class SubscriptionManager {
-
-	private ChannelPoolManager cpManager;
+	
+	//change to static?
+	private static SubscriptionManager instance = null;
+	private ChannelPoolManager cpManager = null;
 	
 	public static SubscriptionManager getInstance() {
+		if (instance == null)
+			instance = new SubscriptionManager();
 		return instance;
 	}
 	
+	//private constructor restricted to this class
+	private SubscriptionManager() {
+		if (cpManager == null)
+			cpManager = ChannelPoolManager.getInstance();
+	}
 
 	/**
 	 * Completes the subscription of the provided ISubscriber to the appropriate AbstractChannel specified by the channelName

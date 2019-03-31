@@ -12,12 +12,20 @@ import subscribers.AbstractSubscriber;
  */
 public class ChannelDiscovery {
 	
+	//static variable instance of type ChannelCreator
+	private static ChannelDiscovery instance = null;
 	
+	//static method to create an instance of a ChannelAccessControl class
 	public static ChannelDiscovery getInstance() {
+		//To ensure one instance is created
+		if (instance == null)
+			instance = new ChannelDiscovery();
 		return instance;
 	}
 	
-	
+	//private constructor restricted to this class
+	private ChannelDiscovery(){
+	}
 	
 	/**
 	 * 

@@ -8,14 +8,26 @@ package pubSubServer;
  * it's also the only class that can do so
  */
 public class ChannelCreator {
-	
+	//start
+	//static variable instance of type ChannelCreator
+	private static ChannelCreator instance = null;
 	private ChannelPoolManager cpm = null;
 	
+	//static method to create an instance of a ChannelCreator
 	protected static ChannelCreator getInstance() {
-		return instance;
+		//To ensure one instance is created
+			if (instance == null)
+				instance = new ChannelCreator();
+			return instance;
+	}
+	
+	//private constructor restricted to this class
+	private ChannelCreator() {
+		if (cpm == null)
+			cpm = ChannelPoolManager.getInstance();
 	}
 
-	
+	//end
 	
 	/**
 	 * creates a new Channel and adds it to the list of Channels so that it can be discovered using the 

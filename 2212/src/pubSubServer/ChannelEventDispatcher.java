@@ -12,13 +12,24 @@ import publishers.AbstractPublisher;
  * Class providing an interface for {@link AbstractPublisher} objects to cover their publishing needs 
  */
 public class ChannelEventDispatcher {
-
-	private ChannelPoolManager cpManager;
 	
+	//change to static?
+	private static ChannelEventDispatcher instance = null;
+	private ChannelPoolManager cpManager = null;
+	
+	//static method to create an instance of a ChannelAccessControl class
 	public static ChannelEventDispatcher getInstance() {
+		//To ensure one instance is created
+		if (instance == null)
+			instance = new ChannelEventDispatcher();
 		return instance;
 	}
-
+	
+	//private constructor restricted to this class
+	private ChannelEventDispatcher() {
+		if (cpManager == null)
+			cpManager = ChannelPoolManager.getInstance();
+	}
 	
 	
 	/**

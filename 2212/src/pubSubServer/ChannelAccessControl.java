@@ -1,6 +1,10 @@
 
 package pubSubServer;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,14 +21,24 @@ import subscribers.AbstractSubscriber;
  * 
  */
 public class ChannelAccessControl {
-
 	
+	//start - edit zach
+	//static variable instance of type ChannelAccessControl
+	private static ChannelAccessControl instance = null;
+	private Map<String, List<AbstractSubscriber>> blackList = new HashMap<>(); //A list of subscribers who have been blocked
+	
+	//private constructor restricted to this class
+	private ChannelAccessControl() {
+	}
+	
+	//static method to create an instance of a ChannelAccessControl class
 	protected static ChannelAccessControl getInstance() {
+		//To ensure one instance is created
+		if (instance == null)
+			instance = new ChannelAccessControl();
 		return instance;
 	}
-	Map<String, List<AbstractSubscriber>> blackList = new HashMap<>();
-	
-	
+	// end
 	
 	/**
 	 * 
@@ -66,8 +80,4 @@ public class ChannelAccessControl {
 			return false;
 		return (blockedSubscribers.contains(subscriber));
 	}
-
-
-	
-	
 }
