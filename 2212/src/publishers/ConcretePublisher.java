@@ -13,10 +13,6 @@ import strategies.publisher.StrategyFactory;
  * methods could have far more interesting logics
  */
 public class ConcretePublisher extends AbstractPublisher {
-
-	
-	
-	
 	
 	/**
 	 * @param concreteStrategy attaches a concreteStrategy generated from the {@link StrategyFactory#createStrategy(strategies.publisher.StrategyName)}

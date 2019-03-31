@@ -1,24 +1,18 @@
 package states.subscriber;
-
+import states.subscriber.IState;
+import events.AbstractEvent;
 
 /**
- * @author kkontog, ktsiouni, mgrigori
- * the base Interface for the Subscriber hierarchy
+ * @author mmurad7
  */
 public abstract class AbstractState implements IState {
-	
-	private String stateName;
-	
+
+	protected IState state = null;
 	/**
-	 * Default Constructor for the abstract class AbstractState
-	 * @param stateName must be a valid state
+	 * @param event an event which is published
+	 * @param channelName the channel that published the event
+	 * 
 	 */
-	public AbstractState(String stateName) {
-		this.stateName = stateName;
-	}
-	
-	protected String getStateName() {
-		return this.stateName;
-	}
-	
+	public void handleEvent(AbstractEvent event, String channelName) {};
+
 }
