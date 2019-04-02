@@ -17,14 +17,14 @@ public class StrategyFactory {
 	public static IStrategy createStrategy(StrategyName strategyName) {
 		IStrategy strategy;
 		switch(strategyName) {
-			case AStrategy:
-				strategy = new AStrategy();
+			case Title:
+				strategy = new TitleStrategy();
 				return strategy;
-			case BStrategy:
-				strategy = new BStrategy();
+			case Body:
+				strategy = new BodyStrategy();
 				return strategy;
 			default:
-				strategy = new DefaultStrategy();
+				strategy = new EventTypeStrategy();
 				return strategy;
 		}
 	}
