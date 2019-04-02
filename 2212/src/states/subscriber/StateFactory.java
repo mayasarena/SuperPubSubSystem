@@ -17,10 +17,14 @@ public class StateFactory {
 	 */
 	public static IState createState(StateName stateName) {
 		switch(stateName) {
-			case astate : 
-				return new AState();
+			case available : 
+				return new Available();
+			case stealth :
+				return new Stealth();
+			case busy :
+				return new Busy();
 			default :
-				return new DefaultState();
+				return new Available();
 		}
 	}
 	
