@@ -22,9 +22,5 @@ public class ConcreteState extends AbstractState {
 	@Override
 	
 	public void handleEvent(AbstractEvent event, String channelName) {};
-		
-	public void publish(AbstractEvent event) {
-		publishingStrategy.doPublish(event, this.hashCode());
-	}
 
 }
