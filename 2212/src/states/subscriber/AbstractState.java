@@ -14,5 +14,5 @@ public abstract class AbstractState implements IState {
 	 * 
 	 */
 	public void handleEvent(AbstractEvent event, String channelName) {};
-
+		
 }
