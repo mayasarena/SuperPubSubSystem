@@ -28,7 +28,7 @@ public abstract class AbstractEvent {
 	 * 
 	 * @return a long value designating the EventType
 	 */
-	protected long getEventType() {
+	public long getEventType() {
 		return eventId;
 	}
 	
