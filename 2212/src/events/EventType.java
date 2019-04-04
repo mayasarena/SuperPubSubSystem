@@ -13,3 +13,6 @@ package events;
 public enum EventType {
 	News, Fictional, Scholarly
 }
+//let news have event id 0
+//let fictional have event id 1
+//let scholarly have event id 2

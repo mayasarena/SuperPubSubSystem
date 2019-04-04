@@ -37,7 +37,8 @@ public abstract class AbstractEvent {
 	 * 
 	 * @return Event Publisher's hashcode
 	 */
-	protected int getEventPublisher() {
+	//changed from protected to public
+	public int getEventPublisher() {
 		return eventPublisherId;
 	}
 	
@@ -46,7 +47,8 @@ public abstract class AbstractEvent {
 	 * 
 	 * @return an object of the Class {@link EventMessage}
 	 */
-	protected EventMessage getPayload() {
+	//changed from protected to public
+	public EventMessage getPayload() {
 		return payload;
 	}
 	

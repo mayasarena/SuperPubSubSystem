@@ -1,10 +1,12 @@
 package strategies.publisher;
-
 import java.util.StringTokenizer;
 import events.AbstractEvent;
 
 public class BodyStrategy implements IStrategy {
 
+	private String channel;
+	
+	//unsure how to implement 
 	@Override
 	public void doPublish(int publisherId) {
 		// TODO Auto-generated method stub
@@ -13,43 +15,36 @@ public class BodyStrategy implements IStrategy {
 
 	@Override
 	public void doPublish(AbstractEvent event, int publisherId) {
-		// TODO Auto-generated method stub
-
+		channel = chooseChannel(event.getPayload().getBody());
+		System.out.println("publisher " + publisherId + "publishes event " + event + "to channel " + channel);
 	}
 	
-	
-	public static String chooseChannel(String body) {
-		
+	public String chooseChannel(String body) {
+		//string tokenizer breaks up the input string, body, into individual words
 		StringTokenizer token = new StringTokenizer(body);
-		
+		//loop while there is another word available 
 		while(token.hasMoreTokens()) {
 			String word = token.nextToken();
-			
+			//switch case for key words, return channel name that fits
+			//channel names taken from channel.chl
 			switch(word) {
 				case "food":
-					return "food";
-				case "delicious":
-					return "food";
-				case "yummy":
 					return "food";
 				case "snack":
 					return "snack";
 				case "cars":
 					return "cars";
-				case "driving":
-					return "cars";
 				case "planes":
 					return "planes";
-				case "flying":
-					return "planes";
+				//can add more cases if necessary, will need to add any extra channels to channels.chl	
 			}
 		}
+		//default is general channel
 		return "general";
 	}
 	
-	public static void main(String args[]) {
-		String text = "hello this is a body of text about food";
-		System.out.print("publisher has published to channel "+ chooseChannel(text));
+	public String getChannel() {
+		return this.channel;
 	}
-
+	
 }
