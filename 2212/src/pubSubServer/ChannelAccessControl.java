@@ -25,7 +25,9 @@ public class ChannelAccessControl {
 	//start - edit zach
 	//static variable instance of type ChannelAccessControl
 	private static ChannelAccessControl instance = null;
-	private Map<String, List<AbstractSubscriber>> blackList = new HashMap<>(); //A list of subscribers who have been blocked
+	
+	//changed to static
+	private static Map<String, List<AbstractSubscriber>> blackList = new HashMap<>(); //A list of subscribers who have been blocked
 	
 	//private constructor restricted to this class
 	private ChannelAccessControl() {
@@ -75,7 +77,8 @@ public class ChannelAccessControl {
 	 * @param channelName a String value representing a valid channel name
 	 * @return true if blocked false otherwise
 	 */
-	protected boolean checkIfBlocked(AbstractSubscriber subscriber, String channelName) {
+	//changed to public and static
+	public static boolean checkIfBlocked(AbstractSubscriber subscriber, String channelName) {
 		
 		List<AbstractSubscriber> blockedSubscribers;
 		if((blockedSubscribers = blackList.get(channelName)) == null)

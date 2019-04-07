@@ -22,16 +22,15 @@ public class EventFactory {
 	 * @return
 	 */
 	public static AbstractEvent createEvent(EventType eventType, int eventPublisherId, EventMessage payload) {
-		AbstractEvent event;
 		switch (eventType) {
-		case Fictional : 
+		case Fictional:
 			return new FictionalEvent(eventPublisherId, eventPublisherId, payload);
-		case News : 
+		case News:
 			return new NewsEvent(eventPublisherId, eventPublisherId, payload);
 		case Scholarly:
 			return new ScholarlyEvent(eventPublisherId, eventPublisherId, payload);
-		default: 
+		default:
 			return new DefaultEvent(eventPublisherId, eventPublisherId, payload);
-	}}
-	
+		}
+	}	
 }

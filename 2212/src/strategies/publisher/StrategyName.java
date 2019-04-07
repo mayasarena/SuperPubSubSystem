@@ -9,5 +9,5 @@ package strategies.publisher;
  *  must be added here
  */
 public enum StrategyName {
-	EventType, Title, Body
+	General, Title, Body
 }

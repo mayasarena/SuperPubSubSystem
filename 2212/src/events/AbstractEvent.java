@@ -17,7 +17,7 @@ public abstract class AbstractEvent {
 	 * @param payload is a {@link EventMessage} which contains a title and a message for the event. Normally there should be a rich hierarchy of 
 	 * EventMessage types.
 	 */
-	public AbstractEvent(long eventID, int eventPublisher, EventMessage payload) {
+	public AbstractEvent (long eventID, int eventPublisher, EventMessage payload) {
 		this.eventId = eventID;
 		this.eventPublisherId = eventPublisher;
 		this.payload = payload;

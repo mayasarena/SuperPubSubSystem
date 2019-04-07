@@ -4,6 +4,7 @@ import events.AbstractEvent;
 import pubSubServer.SubscriptionManager;
 import states.subscriber.StateFactory;
 import states.subscriber.StateName;
+import pubSubServer.ChannelAccessControl;
 
 public class alpha extends AbstractSubscriber{
 
@@ -23,10 +24,16 @@ public class alpha extends AbstractSubscriber{
 	/* (non-Javadoc)
 	 * @see subscribers.ISubscriber#alert(events.AbstractEvent, java.lang.String)
 	 */
+	//had to change checkIfBlocked to public static, and changed blacklist to static too
+	//not sure if that will mess things up or not but there aren't any errors
 	@Override
 	public void alert(AbstractEvent event, String channelName) {
-		System.out.println("Subscriber " + this + " receives event ::" + event + ":: published on channel " + channelName);
-		state.handleEvent(event, channelName);
+		boolean check;
+		check = ChannelAccessControl.checkIfBlocked(this, channelName);
+		if(check == false) {
+			System.out.println("Subscriber " + this + " receives event " + event + " published on channel " + channelName);
+			state.handleEvent(event, channelName);
+		}
 	}
 
 	/* (non-Javadoc)

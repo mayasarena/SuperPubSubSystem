@@ -24,7 +24,7 @@ public class StrategyFactory {
 				strategy = new BodyStrategy();
 				return strategy;
 			default:
-				strategy = new EventTypeStrategy();
+				strategy = new GeneralStrategy();
 				return strategy;
 		}
 	}
