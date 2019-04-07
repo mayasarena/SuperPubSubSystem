@@ -24,7 +24,7 @@ public class StateFactory {
 			case busy :
 				return new Busy();
 			default :
-				return new Available();
+				return new defaultState();
 		}
 	}
 	

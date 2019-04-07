@@ -21,7 +21,7 @@ import subscribers.SubscriberType;
 
 public class Orchestration {
 
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
 
 		List<AbstractPublisher> listOfPublishers = new ArrayList<>();
 		List<AbstractSubscriber> listOfSubscribers = new ArrayList<>();
@@ -43,6 +43,7 @@ public class Orchestration {
 				subscriber.subscribe(channelList.get(subscriberIndex%channelList.size()));
 				subscriberIndex++;
 			}
+			System.out.println(subscriberIndex);
 			initialChannels.close();
 			}catch(IOException ioe) {
 				System.out.println("Loading Channels from file failed proceeding with random selection");
@@ -104,7 +105,7 @@ public class Orchestration {
 		}
 		StateBufferedReader.close();
 		return listOfSubscribers;
-	}*/
+	}
 	
 	
 	
