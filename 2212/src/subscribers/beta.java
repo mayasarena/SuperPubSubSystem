@@ -1,6 +1,7 @@
 package subscribers;
 
 import events.AbstractEvent;
+import pubSubServer.ChannelAccessControl;
 import pubSubServer.SubscriptionManager;
 import states.subscriber.StateFactory;
 import states.subscriber.StateName;
@@ -25,8 +26,12 @@ public class beta extends AbstractSubscriber{
 	 */
 	@Override
 	public void alert(AbstractEvent event, String channelName) {
-		System.out.println("Subscriber " + this + " handling event ::" + event + ":: published on channel " + channelName);
-		state.handleEvent(event, channelName);
+		boolean check;
+		check = ChannelAccessControl.checkIfBlocked(this, channelName);
+		if(check == false) {
+			System.out.println("Subscriber " + this + " receives event " + event + " published on channel " + channelName);
+			state.handleEvent(event, channelName);
+		}
 	}
 
 	/* (non-Javadoc)

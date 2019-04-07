@@ -11,6 +11,7 @@ import java.util.StringTokenizer;
 import events.AbstractEvent;
 import events.EventFactory;
 import events.EventMessage;
+import events.EventType;
 import pubSubServer.AbstractChannel;
 import pubSubServer.ChannelAccessControl;
 import pubSubServer.ChannelDiscovery;

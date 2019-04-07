@@ -28,7 +28,7 @@ class Channel extends AbstractChannel {
 	/* (non-Javadoc)
 	 * @see pubSubServer.AbstractChannel#publishEvent(events.AbstractEvent)
 	 */
-	protected void publishEvent(AbstractEvent event) {
+	public void publishEvent(AbstractEvent event) {
 		events.add(event);
 		notifySubscribers(event);
 
@@ -67,7 +67,7 @@ class Channel extends AbstractChannel {
 		currentEvent = event;
 		for(AbstractSubscriber subscriber : subscribers) {
 			if (!ChannelAccessControl.getInstance().checkIfBlocked(subscriber, this.getChannelTopic())) // <- here
-			subscriber.alert(currentEvent, this.channelTopic);
+				subscriber.alert(currentEvent, this.channelTopic);
 		}
 	}
 

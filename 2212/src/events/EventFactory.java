@@ -22,9 +22,8 @@ public class EventFactory {
 	 * @return
 	 */
 	public static AbstractEvent createEvent(String eventType, int eventPublisherId, EventMessage payload) {
-		AbstractEvent event;
 		switch (eventType) {
-		case "Fictional" : 
+		case "Fictional": 
 			return new FictionalEvent(EventIDMaker.getNewEventID(), eventPublisherId, payload);
 		case "News" : 
 			return new NewsEvent(EventIDMaker.getNewEventID(), eventPublisherId, payload);

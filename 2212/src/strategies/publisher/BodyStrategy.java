@@ -1,6 +1,16 @@
 package strategies.publisher;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
+
 import events.AbstractEvent;
+import events.EventMessage;
+import events.EventType;
+import pubSubServer.AbstractChannel;
+import pubSubServer.ChannelDiscovery;
+import pubSubServer.ChannelEventDispatcher;
+import events.EventFactory;
 
 public class BodyStrategy implements IStrategy {
 
@@ -9,13 +19,25 @@ public class BodyStrategy implements IStrategy {
 	//unsure how to implement 
 	@Override
 	public void doPublish(int publisherId) {
-		System.out.println("publisher " + publisherId + " uses their strategy to create and publish their event");
+		EventMessage msg = new EventMessage("default", "default");
+		AbstractEvent event = EventFactory.createEvent("News", publisherId, msg);
+		
+		List<String> channelsByDefStrategy = new ArrayList();
+		channelsByDefStrategy.add("food");
+		channelsByDefStrategy.add("snacks");
+		ChannelEventDispatcher.getInstance().postEvent(event, channelsByDefStrategy);
+		System.out.println("publisher " + publisherId + " publishes event" + event + "by Default strategy");
 	}
 
 	@Override
 	public void doPublish(AbstractEvent event, int publisherId) {
-		channel = chooseChannel(event.getPayload().getBody());
-		System.out.println("publisher " + publisherId + " publishes event " + event + " to channel " + channel);
+		List<String> channelsByDefStrategy = new ArrayList();
+		channelsByDefStrategy.add("food");
+		channelsByDefStrategy.add("snacks");
+		ChannelEventDispatcher.getInstance().postEvent(event, channelsByDefStrategy);
+		
+
+		System.out.println("publisher " + publisherId + " publishes event " + event + " by Default strategy");
 	}
 	
 	public String chooseChannel(String body) {
