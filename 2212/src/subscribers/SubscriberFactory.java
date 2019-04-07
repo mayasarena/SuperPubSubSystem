@@ -22,14 +22,19 @@ public class SubscriberFactory {
 	 * @return the newly created {@link AbstractSubscriber} instance 
 	 */
 	public static AbstractSubscriber createSubscriber(SubscriberType subscriberType, StateName stateName) {
-		AbstractSubscriber CSA = null;
+		AbstractSubscriber temp = null;
 		switch (subscriberType) {
 			case alpha : 
-				System.out.println("Subscriber " + CSA + " created");
-				return CSA;
-			default:
-				System.out.println("Subscriber " + CSA + " created");
-				return CSA;
+				temp = new alpha();
+				System.out.println("subscriber alpha created");
+			case beta :
+				temp = new beta();
+				System.out.println("subscriber beta created");
+			case gamma :
+				temp = new gamma();
+				System.out.println("subscriber gamma created");
+
 		}
+		return temp;
 	}
 }

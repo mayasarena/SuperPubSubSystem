@@ -43,6 +43,7 @@ public class Orchestration {
 				subscriber.subscribe(channelList.get(subscriberIndex%channelList.size()));
 				subscriberIndex++;
 			}
+			System.out.println(subscriberIndex);
 			initialChannels.close();
 			}catch(IOException ioe) {
 				System.out.println("Loading Channels from file failed proceeding with random selection");

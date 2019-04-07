@@ -1,6 +1,8 @@
 package events;
 
 import publishers.AbstractPublisher;
+import publishers.ConcretePublisher;
+import strategies.publisher.StrategyFactory;
 
 
 /**
@@ -20,8 +22,16 @@ public class EventFactory {
 	 * @return
 	 */
 	public static AbstractEvent createEvent(EventType eventType, int eventPublisherId, EventMessage payload) {
-
-		return null;
-	}
+		AbstractEvent event;
+		switch (eventType) {
+		case Fictional : 
+			return new FictionalEvent(eventPublisherId, eventPublisherId, payload);
+		case News : 
+			return new NewsEvent(eventPublisherId, eventPublisherId, payload);
+		case Scholarly:
+			return new ScholarlyEvent(eventPublisherId, eventPublisherId, payload);
+		default: 
+			return new DefaultEvent(eventPublisherId, eventPublisherId, payload);
+	}}
 	
 }
