@@ -9,13 +9,13 @@ public class BodyStrategy implements IStrategy {
 	//unsure how to implement 
 	@Override
 	public void doPublish(int publisherId) {
-		System.out.println("publisher " + publisherId + "uses their strategy to create and publish their event");
+		System.out.println("publisher " + publisherId + " uses their strategy to create and publish their event");
 	}
 
 	@Override
 	public void doPublish(AbstractEvent event, int publisherId) {
 		channel = chooseChannel(event.getPayload().getBody());
-		System.out.println("publisher " + publisherId + "publishes event " + event + "to channel " + channel);
+		System.out.println("publisher " + publisherId + " publishes event " + event + " to channel " + channel);
 	}
 	
 	public String chooseChannel(String body) {

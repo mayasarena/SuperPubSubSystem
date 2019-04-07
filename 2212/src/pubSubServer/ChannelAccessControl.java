@@ -51,6 +51,7 @@ public class ChannelAccessControl {
 		List<AbstractSubscriber> blockedSubscribers = blackList.getOrDefault(channelName, new ArrayList<AbstractSubscriber>());
 		blockedSubscribers.add(subscriber);
 		blackList.put(channelName, blockedSubscribers);
+		System.out.println("Subcriber " + subscriber + " is blocked on channel" + channelName);
 	}
 
 	/**
@@ -64,6 +65,7 @@ public class ChannelAccessControl {
 		if((blockedSubscribers = blackList.get(channelName)) == null)
 			return;
 		blockedSubscribers.remove(subscriber);
+		System.out.println("Subcriber " + subscriber + " is unblocked on channel" + channelName);
 	}
 
 	

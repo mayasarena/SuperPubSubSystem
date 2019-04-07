@@ -45,6 +45,7 @@ public class ChannelEventDispatcher {
 			}
 			
 			channel.publishEvent(event);
+			System.out.println("channel " + channelName + " has event " + event + " from publisher " + this.hashCode());
 		}
 	}
 	

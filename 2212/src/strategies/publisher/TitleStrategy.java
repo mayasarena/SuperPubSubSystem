@@ -11,14 +11,14 @@ public class TitleStrategy implements IStrategy {
 	//unsure how to implement
 	@Override
 	public void doPublish(int publisherId) {
-		System.out.println("publisher " + publisherId + "uses their strategy to create and publish their event");
+		System.out.println("publisher " + publisherId + " uses their strategy to create and publish their event");
 
 	}
 
 	@Override
 	public void doPublish(AbstractEvent event, int publisherId) {
 		channel = chooseChannel(event.getPayload().getHeader());
-		System.out.println("publisher " + publisherId + "publishes event " + event + "to channel " + channel);
+		System.out.println("publisher " + publisherId + " publishes event " + event + " to channel " + channel);
 
 	}
 	//see body & event type strategy for comments

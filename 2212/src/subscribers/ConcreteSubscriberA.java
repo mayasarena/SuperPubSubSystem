@@ -42,7 +42,7 @@ class ConcreteSubscriberA extends AbstractSubscriber {
 	@Override
 	public void subscribe(String channelName) {
 		SubscriptionManager.getInstance().subscribe(channelName, this);	
-		System.out.println("Subcriber " + this + " subscribes to channel" + channelName);
+		System.out.println("Subcriber " + this + " subscribes to channel " + channelName);
 	}
 
 	/* (non-Javadoc)
@@ -51,7 +51,7 @@ class ConcreteSubscriberA extends AbstractSubscriber {
 	@Override
 	public void unsubscribe(String channelName) {
 		SubscriptionManager.getInstance().subscribe(channelName, this);
-		System.out.println("Subcriber " + this + " unsubscribes to channel" + channelName);
+		System.out.println("Subcriber " + this + " unsubscribes to channel " + channelName);
 		
 	}
 	

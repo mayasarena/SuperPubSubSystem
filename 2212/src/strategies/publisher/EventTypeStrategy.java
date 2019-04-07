@@ -8,7 +8,7 @@ public class EventTypeStrategy implements IStrategy {
 	//when publisher relies on strategy to post the event to a channel
 	@Override
 	public void doPublish(int publisherId) {
-		System.out.println("publisher " + publisherId + "uses their strategy to create and publish their event");
+		System.out.println("publisher " + publisherId + " uses their strategy to create and publish their event");
 
 
 	}
@@ -17,7 +17,7 @@ public class EventTypeStrategy implements IStrategy {
 	@Override
 	public void doPublish(AbstractEvent event, int publisherId) {
 		channel = chooseChannel(event.getEventType());
-		System.out.println("publisher " + publisherId + "publishes event " + event + "to channel " + channel);
+		System.out.println("publisher " + publisherId + " publishes event " + event + " to channel " + channel);
 	}
 	
 	
