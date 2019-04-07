@@ -21,16 +21,17 @@ public class EventFactory {
 	 * @param payload an object of type {@link EventMessage}
 	 * @return
 	 */
-	public static AbstractEvent createEvent(EventType eventType, int eventPublisherId, EventMessage payload) {
+	public static AbstractEvent createEvent(String eventType, int eventPublisherId, EventMessage payload) {
+		AbstractEvent event;
 		switch (eventType) {
-		case Fictional:
-			return new FictionalEvent(eventPublisherId, eventPublisherId, payload);
-		case News:
-			return new NewsEvent(eventPublisherId, eventPublisherId, payload);
-		case Scholarly:
-			return new ScholarlyEvent(eventPublisherId, eventPublisherId, payload);
-		default:
-			return new DefaultEvent(eventPublisherId, eventPublisherId, payload);
-		}
-	}	
+		case "Fictional" : 
+			return new FictionalEvent(EventIDMaker.getNewEventID(), eventPublisherId, payload);
+		case "News" : 
+			return new NewsEvent(EventIDMaker.getNewEventID(), eventPublisherId, payload);
+		case "Scholarly":
+			return new ScholarlyEvent(EventIDMaker.getNewEventID(), eventPublisherId, payload);
+		default: 
+			return new DefaultEvent(EventIDMaker.getNewEventID(), eventPublisherId, payload);
+	}}
+	
 }
