@@ -11,7 +11,7 @@ public class TitleStrategy implements IStrategy {
 	//unsure how to implement
 	@Override
 	public void doPublish(int publisherId) {
-		// TODO Auto-generated method stub
+		System.out.println("publisher " + publisherId + "uses their strategy to create and publish their event");
 
 	}
 
@@ -22,7 +22,7 @@ public class TitleStrategy implements IStrategy {
 
 	}
 	//see body & event type strategy for comments
-	public static String chooseChannel(String title) {
+	public String chooseChannel(String title) {
 		
 		StringTokenizer token = new StringTokenizer(title);
 		
@@ -36,7 +36,6 @@ public class TitleStrategy implements IStrategy {
 					return "snack";
 				case "cars":
 					return "cars";
-
 				case "planes":
 					return "planes";
 			}

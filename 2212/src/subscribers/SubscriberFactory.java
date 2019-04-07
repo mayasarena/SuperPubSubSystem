@@ -25,10 +25,11 @@ public class SubscriberFactory {
 		AbstractSubscriber CSA = null;
 		switch (subscriberType) {
 			case alpha : 
+				System.out.println("Subscriber " + CSA + " created");
 				return CSA;
 			default:
+				System.out.println("Subscriber " + CSA + " created");
 				return CSA;
 		}
 	}
-	
 }

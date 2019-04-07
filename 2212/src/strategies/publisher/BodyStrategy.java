@@ -9,8 +9,7 @@ public class BodyStrategy implements IStrategy {
 	//unsure how to implement 
 	@Override
 	public void doPublish(int publisherId) {
-		// TODO Auto-generated method stub
-
+		System.out.println("publisher " + publisherId + "uses their strategy to create and publish their event");
 	}
 
 	@Override

@@ -23,6 +23,7 @@ class ConcreteSubscriberA extends AbstractSubscriber {
 	 */
 	public void setState(StateName stateName) {
 		state = StateFactory.createState(stateName);
+		System.out.println("Subcriber " + this + " has state" + stateName);
 	}
 	
 	
@@ -40,7 +41,8 @@ class ConcreteSubscriberA extends AbstractSubscriber {
 	 */
 	@Override
 	public void subscribe(String channelName) {
-		SubscriptionManager.getInstance().subscribe(channelName, this);		
+		SubscriptionManager.getInstance().subscribe(channelName, this);	
+		System.out.println("Subcriber " + this + " subscribes to channel" + channelName);
 	}
 
 	/* (non-Javadoc)
@@ -49,6 +51,7 @@ class ConcreteSubscriberA extends AbstractSubscriber {
 	@Override
 	public void unsubscribe(String channelName) {
 		SubscriptionManager.getInstance().subscribe(channelName, this);
+		System.out.println("Subcriber " + this + " unsubscribes to channel" + channelName);
 		
 	}
 	

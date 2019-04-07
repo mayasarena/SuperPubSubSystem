@@ -20,6 +20,7 @@ public class ConcretePublisher extends AbstractPublisher {
 	 */
 	protected ConcretePublisher(IStrategy concreteStrategy) {
 		this.publishingStrategy = concreteStrategy;
+		System.out.println("Publisher " + this.hashCode() + " has strategy " + concreteStrategy);
 	}
 
 	/* (non-Javadoc)

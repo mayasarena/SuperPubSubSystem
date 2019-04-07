@@ -36,6 +36,7 @@ public class ChannelCreator {
 	 * @return the new channel (of any type that extends the {@link AbstractChannel} that has been created
 	 */
 	protected AbstractChannel addChannel(String channelName) {
+		System.out.println("Channel " + channelName + " created");
 		return cpm.addChannel(channelName);
 	}
 
@@ -44,6 +45,7 @@ public class ChannelCreator {
 	 * @param channelName name of the channel to be deleted
 	 */
 	protected void deleteChannel(String channelName) {
+		System.out.println("Channel " + channelName + " deleted");
 		cpm.deleteChannel(channelName);
 	}
 

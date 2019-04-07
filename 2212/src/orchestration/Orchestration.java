@@ -21,7 +21,7 @@ import subscribers.SubscriberType;
 
 public class Orchestration {
 
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
 
 		List<AbstractPublisher> listOfPublishers = new ArrayList<>();
 		List<AbstractSubscriber> listOfSubscribers = new ArrayList<>();
@@ -104,7 +104,7 @@ public class Orchestration {
 		}
 		StateBufferedReader.close();
 		return listOfSubscribers;
-	}*/
+	}
 	
 	
 	
