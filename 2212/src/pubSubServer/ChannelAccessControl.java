@@ -32,7 +32,7 @@ public class ChannelAccessControl {
 	}
 	
 	//static method to create an instance of a ChannelAccessControl class
-	protected static ChannelAccessControl getInstance() {
+	public static ChannelAccessControl getInstance() {
 		//To ensure one instance is created
 		if (instance == null)
 			instance = new ChannelAccessControl();
@@ -46,7 +46,7 @@ public class ChannelAccessControl {
 	 * @param subscriber an instance of any implementation of {@link AbstractSubscriber}
 	 * @param channelName a String value representing a valid channel name
 	 */
-	protected void blockSubcriber(AbstractSubscriber subscriber, String channelName) {
+	public void blockSubcriber(AbstractSubscriber subscriber, String channelName) {
 		
 		List<AbstractSubscriber> blockedSubscribers = blackList.getOrDefault(channelName, new ArrayList<AbstractSubscriber>());
 		blockedSubscribers.add(subscriber);
@@ -59,7 +59,7 @@ public class ChannelAccessControl {
 	 * @param subscriber an instance of any implementation of {@link AbstractSubscriber}
 	 * @param channelName a String value representing a valid channel name
 	 */
-	protected void unBlockSubscriber(AbstractSubscriber subscriber, String channelName) {
+	public void unBlockSubscriber(AbstractSubscriber subscriber, String channelName) {
 		
 		List<AbstractSubscriber> blockedSubscribers;
 		if((blockedSubscribers = blackList.get(channelName)) == null)
