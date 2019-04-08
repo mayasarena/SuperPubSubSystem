@@ -65,39 +65,37 @@ public class Orchestration {
 			BufferedReader commandInput = new BufferedReader(new FileReader(new File("input.txt")));
 			String line = "";
 			while ((line = commandInput.readLine()) != null) {
-				StringTokenizer st = new StringTokenizer(line);
-				String cmd = st.nextToken();
-				if (cmd.equals("PUB")) {
-					int pubId = Integer.parseInt(st.nextToken());
-					String eventType = st.nextToken();
-					String messageHead = st.nextToken();
-					String payload = st.nextToken();
+				StringTokenizer word = new StringTokenizer(line);
+				String Command = word.nextToken();
+				if (Command.equals("PUB")) {
+					int pubId = Integer.parseInt(word.nextToken());
+					String eventType = word.nextToken();
+					String messageHead = word.nextToken();
+					String payload = word.nextToken();
 					EventMessage message = new EventMessage(messageHead, payload);
 					AbstractEvent toPub = EventFactory.createEvent(eventType, pubId, message);
 					listOfPublishers.get(pubId).publish(toPub);
 				}
-				if (cmd.equals("SUB")) {
-					int subId = Integer.parseInt(st.nextToken());
-					String channelName = st.nextToken();
+				if (Command.equals("SUB")) {
+					int subId = Integer.parseInt(word.nextToken());
+					String channelName = word.nextToken();
 					listOfSubscribers.get(subId).subscribe(channelName);
 
 				}
-				if (cmd.equals("BLOCK")) {
-					int blockId = Integer.parseInt(st.nextToken());
-					String channelName = st.nextToken();
+				if (Command.equals("BLOCK")) {
+					int blockId = Integer.parseInt(word.nextToken());
+					String channelName = word.nextToken();
 					ChannelAccessControl.getInstance().blockSubcriber(listOfSubscribers.get(blockId), channelName);
 				}
-				if (cmd.equals("UNBLOCK")) {
-					int blockId = Integer.parseInt(st.nextToken());
-					String channelName = st.nextToken();
+				if (Command.equals("UNBLOCK")) {
+					int blockId = Integer.parseInt(word.nextToken());
+					String channelName = word.nextToken();
 					ChannelAccessControl.getInstance().unBlockSubscriber(listOfSubscribers.get(blockId), channelName);
 				}
 			}
 			commandInput.close();
 
 		} catch (IOException ioe) {
-			System.out.println(ioe.getMessage());
-			System.out.println("Will now terminate");
 			return;
 		}
 		/*for (AbstractPublisher publisher : listOfPublishers) {

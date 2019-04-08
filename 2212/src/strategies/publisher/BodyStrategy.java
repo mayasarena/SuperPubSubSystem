@@ -16,25 +16,25 @@ public class BodyStrategy implements IStrategy {
 
 	private String channel;
 	
-	//unsure how to implement 
+ 
 	@Override
 	public void doPublish(int publisherId) {
 		EventMessage msg = new EventMessage("default", "default");
 		AbstractEvent event = EventFactory.createEvent("News", publisherId, msg);
 		
-		List<String> channelsByDefStrategy = new ArrayList();
-		channelsByDefStrategy.add("food");
-		channelsByDefStrategy.add("snacks");
-		ChannelEventDispatcher.getInstance().postEvent(event, channelsByDefStrategy);
+		List<String> ChannelPost = new ArrayList();
+		ChannelPost.add("food");
+		ChannelPost.add("snacks");
+		ChannelEventDispatcher.getInstance().postEvent(event, ChannelPost);
 		System.out.println("publisher " + publisherId + " publishes event" + event + "by Default strategy");
 	}
 
 	@Override
 	public void doPublish(AbstractEvent event, int publisherId) {
-		List<String> channelsByDefStrategy = new ArrayList();
-		channelsByDefStrategy.add("food");
-		channelsByDefStrategy.add("snacks");
-		ChannelEventDispatcher.getInstance().postEvent(event, channelsByDefStrategy);
+		List<String> ChannelPost = new ArrayList();
+		ChannelPost.add("food");
+		ChannelPost.add("snacks");
+		ChannelEventDispatcher.getInstance().postEvent(event, ChannelPost);
 		
 
 		System.out.println("publisher " + publisherId + " publishes event " + event + " by Default strategy");
