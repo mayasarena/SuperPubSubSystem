@@ -58,12 +58,8 @@ public class Orchestration {
 					SubscriptionManager.getInstance().subscribe(channels.get(index).getChannelTopic(), subscriber);
 				}
 			}
-			/*for (AbstractPublisher publisher : listOfPublishers) {
-				publisher.publish();
-			}*/
-
-			BufferedReader commandInput = new BufferedReader(new FileReader(new File("input.txt")));
 			String line = "";
+			BufferedReader commandInput = new BufferedReader(new FileReader(new File("input.txt")));
 			while ((line = commandInput.readLine()) != null) {
 				StringTokenizer word = new StringTokenizer(line);
 				String Command = word.nextToken();

@@ -12,7 +12,7 @@ import pubSubServer.ChannelDiscovery;
 import pubSubServer.ChannelEventDispatcher;
 import events.EventFactory;
 
-public class TitleStrategy implements IStrategy {
+public class VehicleStrategy implements IStrategy {
 	
 	private String channel;
 	
@@ -48,10 +48,6 @@ public class TitleStrategy implements IStrategy {
 			String word = token.nextToken();
 			
 			switch(word) {
-				case "food":
-					return "food";
-				case "snack":
-					return "snack";
 				case "cars":
 					return "cars";
 				case "planes":

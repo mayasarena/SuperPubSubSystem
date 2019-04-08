@@ -17,11 +17,11 @@ public class StrategyFactory {
 	public static IStrategy createStrategy(StrategyName strategyName) {
 		IStrategy strategy;
 		switch(strategyName) {
-			case Title:
-				strategy = new TitleStrategy();
+			case Vehicle:
+				strategy = new VehicleStrategy();
 				return strategy;
-			case Body:
-				strategy = new BodyStrategy();
+			case Cooking:
+				strategy = new CookingStrategy();
 				return strategy;
 			default:
 				strategy = new GeneralStrategy();

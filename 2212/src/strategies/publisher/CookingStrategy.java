@@ -12,7 +12,7 @@ import pubSubServer.ChannelDiscovery;
 import pubSubServer.ChannelEventDispatcher;
 import events.EventFactory;
 
-public class BodyStrategy implements IStrategy {
+public class CookingStrategy implements IStrategy {
 
 	private String channel;
 	
@@ -53,15 +53,11 @@ public class BodyStrategy implements IStrategy {
 					return "food";
 				case "snack":
 					return "snack";
-				case "cars":
-					return "cars";
-				case "planes":
-					return "planes";
 				//can add more cases if necessary, will need to add any extra channels to channels.chl	
 			}
 		}
-		//default is general channel
-		return "general";
+		//default is food channel
+		return "food";
 	}
 	
 	public String getChannel() {
