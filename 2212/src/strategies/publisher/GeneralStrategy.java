@@ -29,8 +29,6 @@ public class GeneralStrategy implements IStrategy {
 		ChannelPost.add("general");
 		ChannelPost.add("main");
 		ChannelEventDispatcher.getInstance().postEvent(event, ChannelPost);
-		
-
 		System.out.println("publisher " + publisherId + " publishes event " + event + " by Default strategy");
 	}
 }

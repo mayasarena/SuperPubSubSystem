@@ -72,22 +72,23 @@ public class Orchestration {
 					AbstractEvent toPub = EventFactory.createEvent(eventType, pubId, message);
 					listOfPublishers.get(pubId).publish(toPub);
 				}
-				if (Command.equals("SUB")) {
+				else if (Command.equals("SUB")) {
 					int subId = Integer.parseInt(word.nextToken());
 					String channelName = word.nextToken();
 					listOfSubscribers.get(subId).subscribe(channelName);
 
 				}
-				if (Command.equals("BLOCK")) {
-					int blockId = Integer.parseInt(word.nextToken());
-					String channelName = word.nextToken();
-					ChannelAccessControl.getInstance().blockSubcriber(listOfSubscribers.get(blockId), channelName);
-				}
-				if (Command.equals("UNBLOCK")) {
+				else if (Command.equals("UNBLOCK")) {
 					int blockId = Integer.parseInt(word.nextToken());
 					String channelName = word.nextToken();
 					ChannelAccessControl.getInstance().unBlockSubscriber(listOfSubscribers.get(blockId), channelName);
 				}
+				else if (Command.equals("BLOCK")) {
+					int blockId = Integer.parseInt(word.nextToken());
+					String channelName = word.nextToken();
+					ChannelAccessControl.getInstance().blockSubcriber(listOfSubscribers.get(blockId), channelName);
+				}
+				
 			}
 			commandInput.close();
 

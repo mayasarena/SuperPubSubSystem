@@ -1,5 +1,5 @@
 SUB 2 food
 BLOCK 2 food
-PUB 0 TypeA a1 u8
+PUB 1 TypeA a1 u8
 UNBLOCK 2 food
 PUB 0 TypeA h1 p1
